@@ -1,9 +1,9 @@
 <template>
   <div class="home">
     <!-- Cortinas -->
-    <div class="curtains" v-if="showCurtains"></div>
 
     <!-- Grid de imágenes -->
+
     <div class="image-grid">
       <div class="grid-item" v-for="(image, index) in images" :key="index">
         <img
@@ -18,20 +18,19 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-
+import { database } from "@/lib/database";
+console.log(database);
 const images = ref([
-  { src: "/img/a.jpg", alt: "Imagen 1", link: "/proyecto1" },
-  { src: "/img/b.jpg", alt: "Imagen 2", link: "/proyecto2" },
-  { src: "/img/c.jpg", alt: "Imagen 3", link: "/proyecto3" },
-  { src: "/img/d.jpg", alt: "Imagen 4", link: "/proyecto4" },
-  { src: "/img/e.jpg", alt: "Imagen 5", link: "/proyecto5" },
+  { src: "/img/animacion.png", alt: "Imagen 1", link: "/proyecto1" },
+  { src: "/img/estatua.png", alt: "Imagen 2", link: "/proyecto2" },
+  { src: "/img/audiovisual.png", alt: "Imagen 3", link: "/proyecto3" },
+  { src: "/img/ilustracion.png", alt: "Imagen 4", link: "/proyecto4" },
+  { src: "/img/web.png", alt: "Imagen 5", link: "/proyecto5" },
 ]);
 
 const showCurtains = ref(true);
 
 const goToProject = (link) => {
-  // Navegar a la vista del proyecto
-  // Puedes ajustar este método según tu enrutador de Vue
   window.location.href = link;
 };
 
@@ -45,6 +44,10 @@ onMounted(() => {
 <style scoped>
 .home {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .curtains {
@@ -74,20 +77,20 @@ onMounted(() => {
 }
 
 .home .curtain.left {
-  transform: translateX(
-    -100%
-  ); /* Mueve la cortina izquierda hacia la izquierda */
+  transform: translateX(-100%);
 }
 
 .home .curtain.right {
-  transform: translateX(100%); /* Mueve la cortina derecha hacia la derecha */
+  transform: translateX(100%);
 }
 
 .image-grid {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 10px;
+  width: 60%; /* Ajusta el tamaño del grid */
+  max-width: 800px; /* Tamaño máximo para el grid */
   padding: 20px;
 }
 
@@ -97,7 +100,7 @@ onMounted(() => {
   transition: transform 0.2s ease;
 }
 
-.grid-item:nth-child(3) {
+.grid-item:nth-child(2) {
   grid-row: span 2;
 }
 
@@ -116,6 +119,7 @@ onMounted(() => {
   .image-grid {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(5, 1fr);
+    width: 90%; /* Ajusta el tamaño para dispositivos móviles */
   }
 
   .grid-item:nth-child(3) {
