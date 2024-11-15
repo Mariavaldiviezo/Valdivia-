@@ -3,12 +3,12 @@
     <!-- Cortinas -->
 
     <!-- Grid de imágenes -->
-
     <div class="image-grid">
       <div class="grid-item" v-for="(image, index) in images" :key="index">
         <img
           :src="image.src"
           :alt="image.alt"
+          :class="`img${index + 1}`"
           @click="goToProject(image.link)"
         />
       </div>
@@ -18,8 +18,7 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import { database } from "@/lib/database";
-console.log(database);
+
 const images = ref([
   { src: "/img/animacion.png", alt: "Imagen 1", link: "/proyecto1" },
   { src: "/img/estatua.png", alt: "Imagen 2", link: "/proyecto2" },
@@ -48,6 +47,7 @@ onMounted(() => {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  background-color: rgb(42, 42, 161);
 }
 
 .curtains {
@@ -89,9 +89,16 @@ onMounted(() => {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 10px;
-  width: 60%; /* Ajusta el tamaño del grid */
-  max-width: 800px; /* Tamaño máximo para el grid */
+  width: 80%; /* Aumenta el tamaño del grid */
+  max-width: 1200px; /* Aumenta el tamaño máximo del grid */
   padding: 20px;
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
 }
 
 .grid-item {
@@ -102,13 +109,11 @@ onMounted(() => {
 
 .grid-item:nth-child(2) {
   grid-row: span 2;
+  align-self: stretch;
 }
 
-.grid-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
+.img2 {
+  object-fit: cover !important;
 }
 
 .grid-item:hover img {
