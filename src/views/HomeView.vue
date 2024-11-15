@@ -1,8 +1,5 @@
 <template>
   <div class="home">
-    <!-- Cortinas -->
-
-    <!-- Grid de imágenes -->
     <div class="image-grid">
       <div class="grid-item" v-for="(image, index) in images" :key="index">
         <img
@@ -27,17 +24,9 @@ const images = ref([
   { src: "/img/web.png", alt: "Imagen 5", link: "/proyecto5" },
 ]);
 
-const showCurtains = ref(true);
-
 const goToProject = (link) => {
   window.location.href = link;
 };
-
-onMounted(() => {
-  setTimeout(() => {
-    showCurtains.value = false;
-  }, 5000); // Oculta las cortinas después de 5 segundos
-});
 </script>
 
 <style scoped>
