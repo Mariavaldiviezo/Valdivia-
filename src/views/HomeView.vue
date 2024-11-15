@@ -47,7 +47,7 @@ onMounted(() => {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: rgb(42, 42, 161);
+  background-color: rgb(73, 73, 155);
 }
 
 .curtains {
@@ -89,20 +89,14 @@ onMounted(() => {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 10px;
-  width: 80%; /* Aumenta el tamaño del grid */
-  max-width: 1200px; /* Aumenta el tamaño máximo del grid */
+  width: 80%;
+  max-width: 1050px;
   padding: 20px;
-}
-
-.grid-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  transition: transform 0.3s ease;
+  top: 28spx;
 }
 
 .grid-item {
-  overflow: hidden;
+  overflow: visible;
   cursor: pointer;
   transition: transform 0.2s ease;
 }
@@ -112,8 +106,23 @@ onMounted(() => {
   align-self: stretch;
 }
 
-.img2 {
-  object-fit: cover !important;
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}
+
+/* Rotación sutil en las imágenes de las columnas 1 y 3 */
+.grid-item:nth-child(1) img,
+.grid-item:nth-child(5) img {
+  transform: rotate(-3deg); /* Rotación sutil hacia la izquierda */
+}
+
+.grid-item:nth-child(4) img,
+.grid-item:nth-child(3) img {
+  transform: rotate(4deg); /* Rotación sutil hacia la derecha */
 }
 
 .grid-item:hover img {
@@ -124,7 +133,7 @@ onMounted(() => {
   .image-grid {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(5, 1fr);
-    width: 90%; /* Ajusta el tamaño para dispositivos móviles */
+    width: 90%;
   }
 
   .grid-item:nth-child(3) {
