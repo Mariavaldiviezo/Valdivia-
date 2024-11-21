@@ -3,17 +3,14 @@
     <!-- Contenedor para las imágenes y contenido -->
     <div class="content-container">
       <!-- Imagen de la estatua a la izquierda -->
-      <div class="image-left">
-        <img src="/img/estatua.png" alt="estatua" class="left-image" />
-      </div>
+
+      <img class="image-left" src="/img/estatua.png" alt="Estatua" />
 
       <!-- Cuadro grande a la derecha que habla sobre mí -->
       <div class="about-text">
-        <img src="/img/aboutme.png" alt="cuadro sobre mi" class="about-image" />
+        <img src="/img/aboutme.png" alt="Cuadro sobre mí" class="about-image" />
         <!-- Imagen pequeña de un florero de decoración debajo del cuadro -->
-        <div class="decorative-image">
-          <img src="/img/florero.png" alt="florero" class="flower-image" />
-        </div>
+        <img class="decorative-image" src="/img/florero.png" alt="Florero" />
       </div>
     </div>
   </div>
@@ -29,8 +26,8 @@ import { ref } from "vue";
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: rgb(245, 245, 245); /* Fondo claro */
   padding: 20px; /* Espacio alrededor del contenido */
+  background-color: rgb(73, 73, 155);
 }
 
 .content-container {
@@ -39,19 +36,6 @@ import { ref } from "vue";
   align-items: center;
   max-width: 1200px; /* Tamaño máximo del contenido */
   width: 100%;
-  gap: 20px; /* Espacio entre elementos */
-}
-
-.image-left {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end; /* Alinea la imagen de la estatua hacia la derecha del contenedor */
-  margin-right: 20px; /* Despeja la imagen del borde izquierdo */
-}
-
-.left-image {
-  max-width: 80%; /* Limita el ancho de la imagen para que no ocupe todo el espacio */
-  height: auto;
 }
 
 .about-text {
@@ -70,13 +54,9 @@ import { ref } from "vue";
 }
 
 .decorative-image {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
+  width: 50%;
 
-.flower-image {
-  max-width: 50%; /* Tamaño más pequeño para la imagen decorativa */
-  height: auto;
+  position: absolute;
+  bottom: 0px;
 }
 </style>

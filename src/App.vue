@@ -13,8 +13,8 @@ import { RouterView } from "vue-router";
     </header>
   </div>
 
-  <div class="curtain curtainleft"><img src="/img/curtainL.png" alt="" /></div>
-  <div class="curtain curtainright"><img src="/img/curtainR.png" alt="" /></div>
+  <img class="curtain curtainleft" src="/img/curtainL.png" alt="" />
+  <img class="curtain curtainright" src="/img/curtainR.png" alt="" />
 
   <RouterView />
 </template>
@@ -40,12 +40,44 @@ import { RouterView } from "vue-router";
   z-index: 100;
 }
 
+/* Cortinas */
 .curtain {
   position: absolute;
   z-index: 99;
+  top: 0;
+  width: 55%;
+  height: 100vh; /* O la altura de la ventana */
+  animation-delay: 0s; /* Retraso de 3 segundos */
+  animation-duration: 1s; /* Duración de la animación 7 segundos */
+  animation-fill-mode: forwards; /* Mantiene el estado final de la animación */
+}
+
+.curtainleft {
+  left: 0;
+  animation-name: openLeftCurtain;
 }
 
 .curtainright {
-  right: 0px;
+  right: 0;
+  animation-name: openRightCurtain;
+}
+
+/* Animaciones */
+@keyframes openLeftCurtain {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-80%);
+  }
+}
+
+@keyframes openRightCurtain {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(80%);
+  }
 }
 </style>
