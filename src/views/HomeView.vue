@@ -1,5 +1,9 @@
 <template>
   <div class="home">
+    <!-- Cortinas -->
+
+    <img class="img_estatua" src="/img/estatua.png" alt="" />
+    <!-- Grid de imágenes -->
     <div class="image-grid">
       <div class="grid-item" v-for="(image, index) in images" :key="index">
         <img
@@ -37,40 +41,23 @@ const goToProject = (link) => {
   align-items: center;
   min-height: 100vh;
   background-color: rgb(73, 73, 155);
+  overflow: hidden;
 }
 
-.curtains {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  z-index: 10;
+.img_estatua {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  width: 25%;
+  height: auto;
+  object-fit: contain;
+  transform: translateX(-50%);
+  z-index: 80;
+  transition: all 0.2s ease;
 }
 
-.curtain {
-  width: 50%;
-  height: 100vh;
-  object-fit: cover;
-  transition: transform 5s ease;
-}
-
-.curtain.left {
-  transform: translateX(0);
-}
-
-.curtain.right {
-  transform: translateX(0);
-}
-
-.home .curtain.left {
-  transform: translateX(-100%);
-}
-
-.home .curtain.right {
-  transform: translateX(100%);
+.img2 {
+  opacity: 0;
 }
 
 .image-grid {
@@ -118,6 +105,10 @@ const goToProject = (link) => {
   transform: scale(1.1); /* Efecto de "salto" al pasar el cursor */
 }
 
+.img_estatua:hover {
+  transform: translateX(-50%) scale(1.1) rotate(5deg) translateY(-2.5%);
+}
+
 @media (max-width: 768px) {
   .image-grid {
     grid-template-columns: 1fr;
@@ -125,8 +116,20 @@ const goToProject = (link) => {
     width: 90%;
   }
 
+  .img_estatua {
+    display: none;
+  }
+
   .grid-item:nth-child(3) {
     grid-row: auto;
+  }
+
+  .grid-item:nth-child(2) {
+    grid-row: 5/7;
+  }
+
+  .img2 {
+    opacity: 1;
   }
 }
 </style>

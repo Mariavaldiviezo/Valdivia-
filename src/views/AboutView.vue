@@ -1,14 +1,26 @@
 <template>
-  />
+  <div class="about-me">
+    <!-- Contenedor para las imágenes y contenido -->
+    <div class="content-container">
+      <!-- Imagen de la estatua a la izquierda -->
+      <div class="image-left">
+        <img src="/img/estatua.png" alt="estatua" class="left-image" />
+      </div>
 
-  <div class="content">
-    <!-- Imagen a la izquierda -->
-    <img src="/img/estatua.png" alt="Imagen Izquierda" class="left-image" />
+      <!-- Cuadro grande a la derecha que habla sobre mí -->
+      <div class="about-text">
+        <img src="/img/aboutme.png" alt="cuadro sobre mi" class="about-image" />
+        <!-- Imagen pequeña de un florero de decoración debajo del cuadro -->
+        <div class="decorative-image">
+          <img src="/img/florero.png" alt="florero" class="flower-image" />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
-// Puedes agregar cualquier lógica específica aquí si es necesario
+import { ref } from "vue";
 </script>
 
 <style scoped>
@@ -16,50 +28,55 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   min-height: 100vh;
-  background-color: #f3f3f3;
-  padding: 20px;
-  overflow: hidden;
+  background-color: rgb(245, 245, 245); /* Fondo claro */
+  padding: 20px; /* Espacio alrededor del contenido */
 }
 
-.content {
+.content-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
-  max-width: 1200px;
-  gap: 20px;
+  max-width: 1200px; /* Tamaño máximo del contenido */
+  width: 100%;
+  gap: 20px; /* Espacio entre elementos */
+}
+
+.image-left {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; /* Alinea la imagen de la estatua hacia la derecha del contenedor */
+  margin-right: 20px; /* Despeja la imagen del borde izquierdo */
 }
 
 .left-image {
-  width: 40%; /* Ajusta según el tamaño deseado */
+  max-width: 80%; /* Limita el ancho de la imagen para que no ocupe todo el espacio */
   height: auto;
 }
 
-.right-image {
-  width: 50%; /* Ajusta según el tamaño deseado */
+.about-text {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px; /* Despeja la imagen grande del borde derecho */
+}
+
+.about-image {
+  max-width: 100%;
   height: auto;
+  margin-bottom: 10px; /* Espacio entre el cuadro y la imagen del florero */
 }
 
-.side-image {
-  position: absolute;
-  top: 10%;
-  width: 100px; /* Ajusta el tamaño según desees */
+.decorative-image {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.flower-image {
+  max-width: 50%; /* Tamaño más pequeño para la imagen decorativa */
   height: auto;
-}
-
-.left-side {
-  left: 0;
-  transform: translateX(
-    -50%
-  ); /* Para que la imagen esté parcialmente fuera del escritorio */
-}
-
-.right-side {
-  right: 0;
-  transform: translateX(
-    50%
-  ); /* Para que la imagen esté parcialmente fuera del escritorio */
 }
 </style>

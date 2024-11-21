@@ -4,7 +4,6 @@ import { RouterView } from "vue-router";
 
 <template>
   <div class="bambabilón">
-    <!-- Header con la imagen del bambalón -->
     <header class="header">
       <img
         src="/img/bambabilon.png"
@@ -13,6 +12,9 @@ import { RouterView } from "vue-router";
       />
     </header>
   </div>
+
+  <div class="curtain curtainleft"><img src="/img/curtainL.png" alt="" /></div>
+  <div class="curtain curtainright"><img src="/img/curtainR.png" alt="" /></div>
 
   <RouterView />
 </template>
@@ -32,5 +34,18 @@ import { RouterView } from "vue-router";
   width: 100%;
   height: 100%;
   object-fit: cover; /* Ajusta la imagen para que cubra todo el header */
+}
+
+.bambabilón {
+  z-index: 100;
+}
+
+.curtain {
+  position: absolute;
+  z-index: 99;
+}
+
+.curtainright {
+  right: 0px;
 }
 </style>
