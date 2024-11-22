@@ -1,25 +1,41 @@
-<script setup></script>
-
+<!-- ProjectCard.vue -->
 <template>
-  <div class="centered-image">
-    <img
-      v-if="projects.length > 0"
-      :src="projects[10].img"
-      alt="Imagen centrada"
-    />
+  <div class="project-card">
+    <img :src="project.img" alt="Imagen del proyecto" />
+    <!-- Aquí podrás agregar más elementos en el futuro usando el objeto 'project' -->
   </div>
 </template>
 
+<script setup>
+import { defineProps } from "vue";
+
+// Recibe el proyecto completo como prop
+const props = defineProps({
+  project: {
+    type: Object,
+    required: true,
+  },
+});
+</script>
+
 <style scoped>
-/* Imagen centrada */
-.centered-image {
+.project-card {
+  height: 580px; /* Altura fija para todas las tarjetas */
+  width: auto; /* Ancho flexible */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
   position: relative;
-  z-index: 1; /* Coloca la imagen detrás de los postes */
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo claro, puedes ajustar */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.centered-image img {
+.project-card img {
+  max-height: 100%;
+  width: auto; /* Mantiene la proporción de la imagen */
   display: block;
-  height: 650px;
   margin: 0 auto;
 }
 </style>
