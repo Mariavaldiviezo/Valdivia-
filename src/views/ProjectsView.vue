@@ -3,25 +3,29 @@ import { ref, onMounted } from "vue";
 import { database } from "@/lib/database";
 
 const projects = ref([]);
+const isLoading = ref(true); // Añadimos un estado de carga
+
 onMounted(async () => {
   projects.value = await database;
-  console.log(projects[0].img);
+  isLoading.value = false; // Cambiamos el estado de carga a falso una vez que se resuelve la promesa
+  console.log(projects.value[0]?.img);
 });
 </script>
 
 <template>
-  <div class="project-container">
-    <!-- Imagen centrada detrás de los postes -->
+  <div class="project-container" v-if="!isLoading">
+    <!-- Solo renderiza cuando termine de cargar -->
 
+    <!-- Imagen centrada detrás de los postes -->
     <div class="centered-image">
       <img
-        :src="projects.length > 0 ? projects[0].img : ''"
+        v-if="projects.length > 0"
+        :src="projects[10].img"
         alt="Imagen centrada"
       />
     </div>
 
     <!-- Imagen de los postes en el frente -->
-
     <img class="museum-posts" src="/img/postes.png" alt="Postes de museo" />
   </div>
 </template>
@@ -53,12 +57,10 @@ onMounted(async () => {
 /* Postes de museo */
 .museum-posts {
   position: absolute;
-
   left: 0;
   bottom: 0;
   width: 100%;
   height: auto;
-
   z-index: 2; /* Coloca los postes al frente */
   pointer-events: none; /* Si quieres que los postes no interfieran con la imagen centrada */
 }
