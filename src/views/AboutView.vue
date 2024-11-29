@@ -48,7 +48,7 @@ import { ref } from "vue";
 }
 
 .about-image {
-  max-width: 100%;
+  max-width: 95%;
   height: auto;
   margin-bottom: 10px; /* Espacio entre el cuadro y la imagen del florero */
 }
@@ -57,6 +57,6 @@ import { ref } from "vue";
   width: 50%;
 
   position: absolute;
-  bottom: 0px;
+  bottom: 10%;
 }
 </style>

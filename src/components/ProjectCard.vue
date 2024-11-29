@@ -1,7 +1,7 @@
-<!-- ProjectCard.vue -->
 <template>
   <div class="project-card">
     <img :src="project.img" alt="Imagen del proyecto" />
+    <div class="description"></div>
     <!-- Aquí podrás agregar más elementos en el futuro usando el objeto 'project' -->
   </div>
 </template>
@@ -20,16 +20,18 @@ const props = defineProps({
 
 <style scoped>
 .project-card {
-  height: 580px; /* Altura fija para todas las tarjetas */
+  height: 450px; /* Altura fija para todas las tarjetas */
   width: auto; /* Ancho flexible */
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+
   position: relative;
   background-color: rgba(255, 255, 255, 0.8); /* Fondo claro, puedes ajustar */
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 15px solid #d1935a; /* Color marrón claro para el borde */
+  border-radius: 8px; /* Bordes ligeramente redondeados */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra más sutil para profundidad */
+  padding: 10px; /* Espacio entre el borde y la imagen */
 }
 
 .project-card img {
@@ -37,5 +39,15 @@ const props = defineProps({
   width: auto; /* Mantiene la proporción de la imagen */
   display: block;
   margin: 0 auto;
+}
+
+.description {
+  width: 150px;
+  height: 100px;
+  background-color: rgb(16, 58, 95);
+  position: absolute;
+  right: -230px;
+  top: 0;
+  z-index: 9999;
 }
 </style>

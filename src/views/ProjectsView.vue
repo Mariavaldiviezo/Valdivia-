@@ -2,6 +2,9 @@
 import { ref, onMounted } from "vue";
 import { database } from "@/lib/database";
 import ProjectCard from "./../components/ProjectCard.vue";
+import { useRoute } from "vue-router";
+
+const route = useRoute();
 
 // Estado para proyectos, índice actual, carga, y animación
 const projects = ref([]);
@@ -10,7 +13,11 @@ const isLoading = ref(true);
 const isTransitioning = ref(false); // Estado para controlar la transición
 
 onMounted(async () => {
-  projects.value = await database; // Supongo que database es una promesa que devuelve un array de proyectos
+  console.log(route);
+
+  const result = await database;
+  projects.value = result.filter((e) => e.categoria == route.params.categoria);
+  // Supongo que database es una promesa que devuelve un array de proyectos
   isLoading.value = false;
 });
 
@@ -46,11 +53,16 @@ const previousProject = () => {
       &lt;
     </button>
 
-    <!-- Componente ProjectCard, recibe el proyecto actual y el estado de transición -->
-    <ProjectCard
-      :project="projects[currentIndex]"
-      :is-transitioning="isTransitioning"
-    />
+    <!-- Contenedor de proyectos con animación -->
+    <div
+      class="projects-wrapper"
+      :class="{
+        'pop-in': isTransitioning,
+      }"
+    >
+      <!-- Componente ProjectCard, recibe el proyecto actual -->
+      <ProjectCard :project="projects[currentIndex]" />
+    </div>
 
     <!-- Botón de navegación a la derecha -->
     <button @click="nextProject" class="nav-button right-button">&gt;</button>
@@ -87,6 +99,31 @@ const previousProject = () => {
 
 .right-button {
   left: 10px;
+}
+
+/* Contenedor de las tarjetas con transición */
+.projects-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Efecto pop: cuando se activa la transición */
+.pop-in {
+  animation: pop-in 0.5s ease-out forwards;
+}
+
+@keyframes pop-in {
+  0% {
+    transform: scale(0.8); /* Empieza un poco más pequeña */
+  }
+  50% {
+    transform: scale(1.1); /* Expande un poco para el pop */
+  }
+  100% {
+    transform: scale(1); /* Vuelve al tamaño original */
+  }
 }
 
 /* Postes de museo */

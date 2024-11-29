@@ -2,7 +2,12 @@
   <div class="home">
     <!-- Cortinas -->
 
-    <img class="img_estatua" src="/img/estatua.png" alt="" />
+    <img
+      class="img_estatua"
+      src="/img/estatua.png"
+      @click="goToProject('/about')"
+      alt=""
+    />
     <!-- Grid de imágenes -->
     <div class="image-grid">
       <div class="grid-item" v-for="(image, index) in images" :key="index">
@@ -21,11 +26,11 @@
 import { ref, onMounted } from "vue";
 
 const images = ref([
-  { src: "/img/animacion.png", alt: "Imagen 1", link: "/proyecto1" },
-  { src: "/img/estatua.png", alt: "Imagen 2", link: "/proyecto2" },
-  { src: "/img/audiovisual.png", alt: "Imagen 3", link: "/proyecto3" },
-  { src: "/img/ilustracion.png", alt: "Imagen 4", link: "/proyecto4" },
-  { src: "/img/web.png", alt: "Imagen 5", link: "/proyecto5" },
+  { src: "/img/animacion.png", alt: "Imagen 1", link: "/projects" },
+  { src: "/img/estatua.png", alt: "Imagen 2", link: "/about" },
+  { src: "/img/audiovisual.png", alt: "Imagen 3", link: "/projects" },
+  { src: "/img/ilustracion.png", alt: "Imagen 4", link: "/projects" },
+  { src: "/img/web.png", alt: "Imagen 5", link: "/projects" },
 ]);
 
 const goToProject = (link) => {
