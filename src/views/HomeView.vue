@@ -69,7 +69,7 @@ const goToProject = (link) => {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 10px;
+  gap: 15px;
   width: 80%;
   max-width: 1050px;
   padding: 20px;
@@ -112,6 +112,14 @@ const goToProject = (link) => {
 
 .img_estatua:hover {
   transform: translateX(-50%) scale(1.1) rotate(5deg) translateY(-2.5%);
+}
+
+.grid-item:nth-child(5) img {
+  width: 355px;
+}
+
+.grid-item:nth-child(1) img {
+  width: 355px;
 }
 
 @media (max-width: 768px) {

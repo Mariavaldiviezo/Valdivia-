@@ -1,6 +1,16 @@
 <template>
   <div class="project-card">
-    <img :src="project.img" alt="Imagen del proyecto" />
+    <video
+      v-if="project.link_video"
+      :src="project.link_video"
+      muted
+      loop
+      autoplay
+      playsinline
+      class="project-video"
+    ></video>
+    <img v-else :src="project.img" alt="Imagen del proyecto" />
+
     <div class="description"></div>
     <!-- Aquí podrás agregar más elementos en el futuro usando el objeto 'project' -->
   </div>
@@ -20,7 +30,7 @@ const props = defineProps({
 
 <style scoped>
 .project-card {
-  height: 450px; /* Altura fija para todas las tarjetas */
+  height: 550px; /* Altura fija para todas las tarjetas */
   width: auto; /* Ancho flexible */
   display: flex;
   justify-content: center;
@@ -39,6 +49,12 @@ const props = defineProps({
   width: auto; /* Mantiene la proporción de la imagen */
   display: block;
   margin: 0 auto;
+}
+
+video {
+  top: 0px;
+  position: relative;
+  height: 100vh;
 }
 
 .description {

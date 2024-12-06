@@ -48,11 +48,13 @@ const previousProject = () => {
 
 <template>
   <div class="project-container" v-if="projects.length > 0">
-    <!-- Botón de navegación a la izquierda -->
-    <button @click="previousProject" class="nav-button left-button">
-      &lt;
-    </button>
-
+    <!-- Imagen con función de botón de navegación a la izquierda -->
+    <img
+      @click="previousProject"
+      class="nav-button left-button"
+      src="/img/left-button.png"
+      alt="Anterior"
+    />
     <!-- Contenedor de proyectos con animación -->
     <div
       class="projects-wrapper"
@@ -63,11 +65,13 @@ const previousProject = () => {
       <!-- Componente ProjectCard, recibe el proyecto actual -->
       <ProjectCard :project="projects[currentIndex]" />
     </div>
-
-    <!-- Botón de navegación a la derecha -->
-    <button @click="nextProject" class="nav-button right-button">&gt;</button>
-
-    <img class="museum-posts" src="/img/postes.png" alt="Postes de museo" />
+    <img
+      @click="nextProject"
+      class="nav-button right-button"
+      src="/img/right-button.png"
+      alt="Siguiente"
+    />
+    <!-- Imagen con función de botón de navegación a la derecha -->
   </div>
 </template>
 
@@ -83,22 +87,21 @@ const previousProject = () => {
   overflow: hidden;
 }
 
+/* Imágenes como botones */
 .nav-button {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 24px;
-  border-radius: 50%;
+  cursor: pointer; /* Cambia el cursor a mano al pasar el ratón */
+  position: absolute;
+  top: -40px; /* Eleva los botones cerca del header */
+  transition: transform 0.2s ease;
+  z-index: 99;
 }
 
 .left-button {
-  right: 10px;
+  right: 22px;
 }
 
 .right-button {
-  left: 10px;
+  left: 22px;
 }
 
 /* Contenedor de las tarjetas con transición */
