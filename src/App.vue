@@ -47,8 +47,8 @@ import { RouterView } from "vue-router";
   top: 0;
   width: 55%;
   height: 100vh; /* O la altura de la ventana */
-  animation-delay: 0s; /* Retraso de 3 segundos */
-  animation-duration: 1s; /* Duración de la animación 7 segundos */
+  animation-delay: 1s; /* Retraso de 3 segundos */
+  animation-duration: 7s; /* Duración de la animación 7 segundos */
   animation-fill-mode: forwards; /* Mantiene el estado final de la animación */
 }
 

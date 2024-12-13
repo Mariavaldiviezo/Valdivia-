@@ -130,6 +130,10 @@ const goToProject = (link) => {
 }
 
 @media (max-width: 768px) {
+  .home {
+    height: auto;
+    padding: 0px !important;
+  }
   .image-grid {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(5, 1fr);
@@ -150,10 +154,6 @@ const goToProject = (link) => {
 
   .img2 {
     opacity: 1;
-  }
-
-  .home {
-    overflow-y: scroll;
   }
 }
 </style>
