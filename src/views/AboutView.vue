@@ -3,7 +3,9 @@
     <!-- Contenedor para las imágenes y contenido -->
     <div class="content-container">
       <!-- Imagen de la estatua a la izquierda -->
-      <img class="image-left" src="/img/estatua.png" alt="Estatua" />
+      <div class="image-left-container">
+        <img class="image-left" src="/img/estatua.png" alt="Estatua" />
+      </div>
 
       <!-- Cuadro grande a la derecha que habla sobre mí -->
       <div class="about-text">
@@ -46,9 +48,9 @@ const decorativeImages = [
 .about-me {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: end;
   min-height: 100vh;
-  padding: 20px; /* Espacio alrededor del contenido */
+  padding: 0px 20px; /* Espacio alrededor del contenido */
   background-color: rgb(73, 73, 155);
 }
 
@@ -58,12 +60,25 @@ const decorativeImages = [
   align-items: center;
   max-width: 1200px; /* Tamaño máximo del contenido */
   width: 100%;
+  max-height: 100dvh;
+  max-height: 100vh;
+  overflow: hidden;
 }
 
-.image-left {
+.image-left-container {
   flex: 1;
   max-width: 40%; /* Asegura que no ocupe demasiado espacio */
   height: auto;
+  position: relative;
+  align-self: end;
+}
+
+.image-left {
+  position: absolute;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0px;
 }
 
 .about-text {

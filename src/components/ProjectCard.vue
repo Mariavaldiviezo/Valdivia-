@@ -7,11 +7,15 @@
       loop
       autoplay
       playsinline
+      controls
       class="project-video"
     ></video>
     <img v-else :src="project.img" alt="Imagen del proyecto" />
 
-    <div class="description"><img src="/img/description.png" alt="" /></div>
+    <div class="description">
+      <img src="/img/description.png" alt="" />
+      <p>{{ project.nombre }}</p>
+    </div>
   </div>
 </template>
 
@@ -57,10 +61,21 @@ video {
 }
 
 .description {
-  width: 150px;
-  height: 100px;
+  width: 190px;
+  height: 115px;
   bottom: -60px;
   position: absolute;
   z-index: 9999;
+}
+
+.description * {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #46311e;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 </style>

@@ -26,11 +26,19 @@
 import { ref, onMounted } from "vue";
 
 const images = ref([
-  { src: "/img/animacion.png", alt: "Imagen 1", link: "/projects" },
+  { src: "/img/animacion.png", alt: "Imagen 1", link: "/projects/animacion" },
   { src: "/img/estatua.png", alt: "Imagen 2", link: "/about" },
-  { src: "/img/audiovisual.png", alt: "Imagen 3", link: "/projects" },
-  { src: "/img/ilustracion.png", alt: "Imagen 4", link: "/projects" },
-  { src: "/img/web.png", alt: "Imagen 5", link: "/projects" },
+  {
+    src: "/img/audiovisual.png",
+    alt: "Imagen 3",
+    link: "/projects/audiovisual",
+  },
+  {
+    src: "/img/ilustracion.png",
+    alt: "Imagen 4",
+    link: "/projects/ilustracion",
+  },
+  { src: "/img/web.png", alt: "Imagen 5", link: "/projects/web" },
 ]);
 
 const goToProject = (link) => {
@@ -44,9 +52,8 @@ const goToProject = (link) => {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
   background-color: rgb(73, 73, 155);
-  overflow: hidden;
 }
 
 .img_estatua {
@@ -143,6 +150,10 @@ const goToProject = (link) => {
 
   .img2 {
     opacity: 1;
+  }
+
+  .home {
+    overflow-y: scroll;
   }
 }
 </style>

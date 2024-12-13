@@ -47,8 +47,6 @@ const previousProject = () => {
 </script>
 
 <template>
-  <div class="background"></div>
-
   <div class="project-container" v-if="projects.length > 0">
     <!-- Imagen con función de botón de navegación a la izquierda -->
     <img
@@ -78,12 +76,6 @@ const previousProject = () => {
 </template>
 
 <style scoped>
-.background {
-  background-image: url("/img/fondo.jpg");
-  background-size: cover;
-  background-position: center;
-}
-
 .project-container {
   position: relative;
   display: flex;
@@ -92,6 +84,9 @@ const previousProject = () => {
   width: 100%;
   min-height: 100vh;
   background-color: rgb(230, 85, 157);
+  background-image: url("/img/fondo.png");
+  background-size: cover;
+  background-position: center;
   overflow: hidden;
 }
 
@@ -137,14 +132,52 @@ const previousProject = () => {
   }
 }
 
-/* Postes de museo */
-.museum-posts {
+.nav-button {
+  cursor: pointer; /* Cambia el cursor a mano al pasar el ratón */
   position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: auto;
-  z-index: 2; /* Coloca los postes al frente */
-  pointer-events: none; /* Si quieres que los postes no interfieran con la imagen centrada */
+  top: -40px; /* Eleva los botones cerca del header */
+  transition: transform 0.2s ease;
+  z-index: 99;
+}
+
+.nav-button:hover {
+  animation: jump 0.5s ease-out;
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0); /* Posición inicial */
+  }
+  30% {
+    transform: translateY(-10px); /* Sube un poco */
+  }
+  60% {
+    transform: translateY(0); /* Baja */
+  }
+  100% {
+    transform: translateY(-5px); /* Rebota ligeramente */
+  }
+}
+
+.left-button {
+  right: 88px;
+}
+
+.right-button {
+  left: 70px;
+}
+
+@media (max-width: 768px) {
+  .left-button {
+    right: -50px;
+  }
+
+  .right-button {
+    left: -75px;
+  }
+
+  .project-container {
+    background-image: none;
+  }
 }
 </style>
