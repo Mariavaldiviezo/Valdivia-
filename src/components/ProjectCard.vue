@@ -11,8 +11,7 @@
     ></video>
     <img v-else :src="project.img" alt="Imagen del proyecto" />
 
-    <div class="description"></div>
-    <!-- Aquí podrás agregar más elementos en el futuro usando el objeto 'project' -->
+    <div class="description"><img src="/img/description.png" alt="" /></div>
   </div>
 </template>
 
@@ -60,10 +59,8 @@ video {
 .description {
   width: 150px;
   height: 100px;
-  background-color: rgb(16, 58, 95);
+  bottom: -60px;
   position: absolute;
-  right: -230px;
-  top: 0;
   z-index: 9999;
 }
 </style>

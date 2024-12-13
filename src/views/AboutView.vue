@@ -82,9 +82,11 @@ const decorativeImages = [
 }
 
 .about-image {
-  width: 100%;
+  width: 125%;
   height: auto;
   position: relative;
+  right: 55px;
+  bottom: 40px;
   z-index: 1; /* Mantiene esta imagen al frente */
 }
 
@@ -98,50 +100,57 @@ const decorativeImages = [
 
 /* Posiciones específicas para las imágenes decorativas */
 .decorative-image-1 {
-  top: -20px;
-  left: -30px;
-  transform: rotate(-15deg);
+  top: 30px;
+  left: -60px;
+  width: 100px;
 }
 
 .decorative-image-2 {
-  top: 10%;
-  left: 80%;
-  transform: rotate(10deg);
+  top: 50%;
+  right: -85px;
+  transform: rotate(2deg);
+  width: 100px;
 }
 
 .decorative-image-3 {
-  bottom: 10%;
-  left: -20px;
-  transform: rotate(-5deg);
+  top: 50%;
+  left: -60px;
+  transform: rotate(2deg);
+  width: 100px;
 }
 
 .decorative-image-4 {
-  bottom: -20px;
-  right: -30px;
-  transform: rotate(20deg);
+  top: 27%;
+  right: -110px;
+  transform: rotate(-10deg);
+  width: 100px;
 }
 
 .decorative-image-5 {
-  top: 50%;
-  left: -40px;
-  transform: rotate(-25deg);
+  top: 27%;
+  left: -110px;
+  transform: rotate(-10deg);
+  width: 100px;
 }
 
 .decorative-image-6 {
-  top: -30px;
-  right: 10%;
+  top: 40px;
+  right: -80px;
+  width: 105px;
   transform: rotate(15deg);
 }
 
 .decorative-image-7 {
-  bottom: 20%;
+  bottom: 7%;
   right: -40px;
-  transform: rotate(5deg);
+  width: 100px;
+  transform: rotate(10deg);
 }
 
 .decorative-image-8 {
-  bottom: -40px;
-  left: 50%;
-  transform: rotate(-10deg);
+  bottom: 10%;
+  left: -60px;
+  transform: rotate(-5deg);
+  width: 105px;
 }
 </style>

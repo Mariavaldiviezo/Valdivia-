@@ -47,6 +47,8 @@ const previousProject = () => {
 </script>
 
 <template>
+  <div class="background"></div>
+
   <div class="project-container" v-if="projects.length > 0">
     <!-- Imagen con función de botón de navegación a la izquierda -->
     <img
@@ -76,6 +78,12 @@ const previousProject = () => {
 </template>
 
 <style scoped>
+.background {
+  background-image: url("/img/fondo.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
 .project-container {
   position: relative;
   display: flex;
