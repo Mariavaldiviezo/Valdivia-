@@ -80,4 +80,10 @@ import { RouterView } from "vue-router";
     transform: translateX(80%);
   }
 }
+
+@media screen and (max-width: 768px) {
+  .curtain {
+    display: none;
+  }
+}
 </style>
