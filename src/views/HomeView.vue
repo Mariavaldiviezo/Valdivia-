@@ -26,19 +26,17 @@
 import { ref, onMounted } from "vue";
 
 const images = ref([
-  { src: "/img/animacion.png", alt: "Imagen 1", link: "/projects/animacion" },
-  { src: "/img/estatua.png", alt: "Imagen 2", link: "/about" },
+  { src: "/img/animacion.png", alt: "Imagen 1" },
+  { src: "/img/estatua.png", alt: "Imagen 2" },
   {
     src: "/img/audiovisual.png",
     alt: "Imagen 3",
-    link: "/projects/audiovisual",
   },
   {
     src: "/img/ilustracion.png",
     alt: "Imagen 4",
-    link: "/projects/ilustracion",
   },
-  { src: "/img/web.png", alt: "Imagen 5", link: "/projects/web" },
+  { src: "/img/web.png", alt: "Imagen 5" },
 ]);
 
 const goToProject = (link) => {
