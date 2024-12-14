@@ -158,26 +158,4 @@ const previousProject = () => {
     transform: translateY(-5px); /* Rebota ligeramente */
   }
 }
-
-.left-button {
-  right: 88px;
-}
-
-.right-button {
-  left: 70px;
-}
-
-@media (max-width: 768px) {
-  .left-button {
-    right: -50px;
-  }
-
-  .right-button {
-    left: -75px;
-  }
-
-  .project-container {
-    background-image: none;
-  }
-}
 </style>

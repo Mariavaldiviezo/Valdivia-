@@ -128,32 +128,4 @@ const goToProject = (link) => {
 .grid-item:nth-child(1) img {
   width: 355px;
 }
-
-@media (max-width: 768px) {
-  .home {
-    height: auto;
-    padding: 0px !important;
-  }
-  .image-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(5, 1fr);
-    width: 90%;
-  }
-
-  .img_estatua {
-    display: none;
-  }
-
-  .grid-item:nth-child(3) {
-    grid-row: auto;
-  }
-
-  .grid-item:nth-child(2) {
-    grid-row: 5/7;
-  }
-
-  .img2 {
-    opacity: 1;
-  }
-}
 </style>
